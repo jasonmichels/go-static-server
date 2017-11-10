@@ -1,11 +1,12 @@
 ### Go Static Server
-Static server to serve single page javascript applications
+Work In Progress
+Static server to serve single page javascript applications.  The use is for microservice front end apps.
 
 ### Optional Environment Variables
 - APP_ENV=local
 - NEW_RELIC_NAME=changeMe
 - NEW_RELIC_KEY=changeMe
-- PATH_PREFIX="/work-queue"
+- PATH_PREFIX="/front-end-service-one"
 
 ### Testing Examples
 ```sh
