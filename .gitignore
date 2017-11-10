@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+/.idea
+.vagrant/
+docker-compose.yml
+*.swp
+vendor/
+coverage.out
+debug.test
