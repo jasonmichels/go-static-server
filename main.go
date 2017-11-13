@@ -22,14 +22,15 @@ const IndexHTML = PublicPath + "/index.html"
 func getFileToServe(url *url.URL, pathPrefix string) string {
 	var file string
 
+	if pathPrefix == "/" {
+		pathPrefix = ""
+	}
+
 	switch filepath.Ext(url.Path) {
 	case ".html", ".htm", "":
 		file = IndexHTML
 	default:
-		path := url.Path
-		if len(pathPrefix) > 1 {
-			path = strings.TrimPrefix(path, pathPrefix)
-		}
+		path := strings.TrimPrefix(url.Path, pathPrefix)
 		file = PublicPath + path
 	}
 
@@ -38,7 +39,8 @@ func getFileToServe(url *url.URL, pathPrefix string) string {
 
 // Handle serving static files
 func handler(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, getFileToServe(r.URL, os.Getenv("PATH_PREFIX")))
+	filePath := getFileToServe(r.URL, os.Getenv("PATH_PREFIX"))
+	http.ServeFile(w, r, filePath)
 }
 
 func main() {
