@@ -7,6 +7,7 @@ Static server to serve single page javascript applications.  The use is for micr
 - NEW_RELIC_NAME=changeMe
 - NEW_RELIC_KEY=changeMe
 - PATH_PREFIX="/front-end-service-one"
+- PORT=:80
 
 ### Testing Examples
 ```sh

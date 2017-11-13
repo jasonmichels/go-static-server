@@ -51,6 +51,11 @@ func main() {
 		log.Println("New relic issue and not being used: ", err)
 	}
 
+	port, ok := os.LookupEnv("PORT")
+	if !ok {
+		port = ":80"
+	}
+
 	http.Handle(middleware.NewRelicMiddleware(app, "/", middleware.LoggingMiddleware(handler)))
-	http.ListenAndServe(":8001", nil)
+	http.ListenAndServe(port, nil)
 }
